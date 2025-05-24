@@ -1,20 +1,27 @@
 import type { Metadata } from 'next'
-import { Outfit, Ovo } from 'next/font/google'
+import { Fira_Code, Montserrat } from 'next/font/google'
 import './globals.css'
 
-const outfit = Outfit({
+const comfortaa = Montserrat({
+	weight: ['300', '400', '500', '600', '700'],
 	subsets: ['latin'],
-	weight: ['400', '500', '600', '700'],
+	display: 'swap',
+	fallback: ['sans-serif'],
 })
 
-const ovo = Ovo({
+const firaCode = Fira_Code({
 	subsets: ['latin'],
 	weight: ['400'],
 })
 
 export const metadata: Metadata = {
-	title: 'Portfolio - Muzaffar',
-	description: '',
+	title: 'Muzaffar Yusupov',
+	description: 'Hello, my name is Muzaffar Yusupov and welcome to my portfolio.',
+	keywords: 'portfolio website nextjs vercel typescript muzaffar',
+	authors: [{ name: 'Muzaffar Yusupov' }],
+	icons: {
+		icon: [{ url: '/favicon.webp' }],
+	},
 }
 
 export default function RootLayout({
@@ -25,7 +32,7 @@ export default function RootLayout({
 	return (
 		<html lang='en' className='scroll-smooth'>
 			<body
-				className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white`}
+				className={`${comfortaa.className} ${firaCode.className} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white`}
 			>
 				{children}
 			</body>

@@ -1,23 +1,22 @@
-import { assets } from '@/assets/assets'
-import { ThemeProps } from '@/types'
-import { workData } from '@/utils/helpers'
+import { projectsData } from '@/utils/helpers'
 import { motion } from 'motion/react'
 import Image from 'next/image'
+import { PiArrowRightThin } from 'react-icons/pi'
 
-const Work = ({ isDarkMode }: ThemeProps) => {
+const Work = () => {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1 }}
 			id='work'
-			className='w-full px-[12%] py-10 scroll-mt-20'
+			className='w-full px-[12%] py-10 scroll-mt-20 max-sm:px-4'
 		>
 			<motion.h4
 				initial={{ y: -20, opacity: 0 }}
 				whileInView={{ y: 0, opacity: 1 }}
 				transition={{ delay: 0.3, duration: 0.5 }}
-				className='text-center mb-2 text-lg font-Ovo'
+				className='text-center mb-2 text-lg max-sm:text-base'
 			>
 				My portfolio
 			</motion.h4>
@@ -26,7 +25,7 @@ const Work = ({ isDarkMode }: ThemeProps) => {
 				initial={{ y: -20, opacity: 0 }}
 				whileInView={{ y: 0, opacity: 1 }}
 				transition={{ delay: 0.5, duration: 0.5 }}
-				className='text-center text-5xl font-Ovo'
+				className='text-center text-5xl max-sm:text-3xl'
 			>
 				My latest work
 			</motion.h2>
@@ -35,7 +34,7 @@ const Work = ({ isDarkMode }: ThemeProps) => {
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
 				transition={{ delay: 0.7, duration: 0.5 }}
-				className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'
+				className='text-center max-w-2xl mx-auto mt-5 mb-12 font-firaCode'
 			>
 				Welcome to my web development portfolio! Explore a collection of projects showcasing my
 				expertise in front-end development.
@@ -45,24 +44,48 @@ const Work = ({ isDarkMode }: ThemeProps) => {
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
 				transition={{ delay: 0.9, duration: 0.6 }}
-				className='grid grid-cols-auto my-10 gap-5 dark:text-black'
+				className='grid grid-cols-1 gap-3 md:gap-5 md:grid-cols-2'
 			>
-				{workData.map((project, index) => (
+				{projectsData.map((item, index) => (
 					<motion.div
-						whileHover={{ scale: 1.05 }}
-						transition={{ duration: 0.3 }}
+						initial={{ y: 100, opacity: 0 }}
+						whileInView={{ y: 0, opacity: 1 }}
+						transition={{ delay: 0.5, duration: 0.6 }}
 						key={index}
-						className='aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group'
-						style={{ backgroundImage: `url(${project.bgImage})` }}
+						className='border border-gray-600 dark:border-white/60 rounded-lg px-3 py-2 flex flex-col'
 					>
-						<div className='bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7'>
-							<div>
-								<h2 className='font-semibold'>{project.title}</h2>
-								<p className='text-sm text-gray-700'>{project.description}</p>
-							</div>
-							<div className='border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition'>
-								<Image src={assets.send_icon} alt='send icon' className='w-5' />
-							</div>
+						<div className='relative w-full h-60'>
+							<Image src={item.image} alt={item.title} fill className='object-cover rounded-lg' />
+						</div>
+						<div className='px-1'>
+							<h2 className='text-gray-600 dark:text-white text-lg font-firaCode mt-4'>
+								{item.title}
+							</h2>
+							<p className='text-gray-600 dark:text-white font-firaCode font-bold text-sm mt-3'>
+								{item.description}
+							</p>
+						</div>
+						<div className='flex items-center gap-1.5 my-3 sm:gap-3'>
+							<a
+								href={item.siteLink}
+								className='bg-black border text-white text-xs px-1 leading-6 py-0.5 rounded-lg hover:bg-darkHover dark:bg-transparent dark:text-white sm:px-3 sm:text-base sm:py-1.5'
+							>
+								Visit site
+							</a>
+							{item.adminPanelLink ? (
+								<a
+									href={item.adminPanelLink}
+									className='bg-black border text-white text-xs px-1 py-0.5 leading-6 rounded-lg hover:bg-darkHover dark:bg-transparent dark:text-white sm:px-3 sm:text-base sm:py-1.5'
+								>
+									Visit Admin Panel
+								</a>
+							) : null}
+							<a
+								href={item.sourceCodeLink}
+								className='bg-white border border-black text-xs px-1 py-0.5 leading-6 rounded-lg hover:bg-lightHover text-black sm:px-3 sm:text-base sm:py-1.5'
+							>
+								Source code
+							</a>
 						</div>
 					</motion.div>
 				))}
@@ -71,15 +94,11 @@ const Work = ({ isDarkMode }: ThemeProps) => {
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
 				transition={{ duration: 0.5, delay: 1.1 }}
-				href=''
+				href='https://github.com/muzaffaryusupov1'
 				className='w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover'
 			>
-				Show more{' '}
-				<Image
-					src={isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold}
-					alt='right arrow'
-					className='w-4'
-				/>
+				Show more
+				<PiArrowRightThin size={24} />
 			</motion.a>
 		</motion.div>
 	)

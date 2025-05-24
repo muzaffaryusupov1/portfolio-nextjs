@@ -1,74 +1,76 @@
-import { assets } from '@/assets/assets'
+import { IProjects, ISkills } from '@/types'
+import { FaReact, FaVuejs } from 'react-icons/fa'
+import { IoLogoCss3, IoLogoJavascript } from 'react-icons/io'
+import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri'
+import { SiHtml5, SiTypescript } from 'react-icons/si'
 
-export const workData = [
+export const projectsData: IProjects[] = [
 	{
-		title: 'Frontend project',
-		description: 'Web Design',
-		bgImage: '/work-1.png',
+		image: '/bellissimo.png',
+		title: 'Bellissimo Pizza + Admin Panel',
+		description:
+			"I created this site as a clone of Bellissimo's official website, where customers can order pizza and prepare their own pizza with various ingredients.",
+		siteLink: 'https://belissimo-clone.vercel.app/',
+		adminPanelLink: 'https://admin-belissimo.vercel.app/',
+		sourceCodeLink: 'https://github.com/muzaffaryusupov1/belissimo-clone',
 	},
 	{
-		title: 'Geo based app',
-		description: 'Mobile App',
-		bgImage: '/work-2.png',
+		image: '/murashop-img.png',
+		title: 'Murashop',
+		description:
+			'This project is an e-commerce project. I created this project using Vue js framework. And the styling was done using Tailwind Css. And for the database I did it using Mokky dev',
+		siteLink: 'https://texnoshop-vue-js.vercel.app/',
+		sourceCodeLink: 'https://github.com/muzaffaryusupov1/Texnoshop-VueJs',
 	},
 	{
-		title: 'Photography site',
-		description: 'Web Design',
-		bgImage: '/work-3.png',
+		image: '/playnchill-img.jpg',
+		title: 'Playnchill',
+		description:
+			'This project is an online store where you can buy video games. I created this project inspired by the Steam platform. I used the React js library in this project. I used Tailwind Css for styling, Mokky dev for storing data, and Clerk for registering and managing users.',
+		siteLink: 'https://github.com/muzaffaryusupov1/Playnchill',
+		sourceCodeLink: 'https://playn-chill.vercel.app/',
 	},
 	{
-		title: 'UI/UX designing',
-		description: 'UI/UX Design',
-		bgImage: '/work-4.png',
+		image: '/agon-img.jpg',
+		title: 'Agon',
+		description:
+			'A simple landing page with a beautiful design. I made this site using Html and Css and it is also responsive for mobile.',
+		siteLink: 'https://agon-lemon.vercel.app/',
+		sourceCodeLink: 'https://github.com/muzaffaryusupov1/Agon',
 	},
 ]
 
-export const serviceData = [
+export const skillsData: ISkills[] = [
 	{
-		icon: assets.web_icon,
-		title: 'Web design',
-		description: 'Web development is the process of building, programming...',
-		link: '',
+		icon: SiHtml5,
+		title: 'HTML',
 	},
 	{
-		icon: assets.mobile_icon,
-		title: 'Mobile app',
-		description: 'Mobile app development involves creating software for mobile devices...',
-		link: '',
+		icon: IoLogoCss3,
+		title: 'CSS',
 	},
 	{
-		icon: assets.ui_icon,
-		title: 'UI/UX design',
-		description: 'UI/UX design focuses on creating a seamless user experience...',
-		link: '',
+		icon: RiTailwindCssFill,
+		title: 'TAILWIND CSS',
 	},
 	{
-		icon: assets.graphics_icon,
-		title: 'Graphics design',
-		description: 'Creative design solutions to enhance visual communication...',
-		link: '',
-	},
-]
-
-export const infoList = [
-	{
-		icon: assets.code_icon,
-		iconDark: assets.code_icon_dark,
-		title: 'Languages',
-		description: 'HTML, CSS, JavaScript React Js, Next Js',
+		icon: IoLogoJavascript,
+		title: 'JAVASCRIPT',
 	},
 	{
-		icon: assets.edu_icon,
-		iconDark: assets.edu_icon_dark,
-		title: 'Education',
-		description: 'B.Tech in Computer Science',
+		icon: SiTypescript,
+		title: 'TYPESCRIPT',
 	},
 	{
-		icon: assets.project_icon,
-		iconDark: assets.project_icon_dark,
-		title: 'Projects',
-		description: 'Built more than 5 projects',
+		icon: FaReact,
+		title: 'REACT.JS',
+	},
+	{
+		icon: RiNextjsFill,
+		title: 'NEXT.JS',
+	},
+	{
+		icon: FaVuejs,
+		title: 'VUE.JS',
 	},
 ]
-
-export const toolsData = [assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git]

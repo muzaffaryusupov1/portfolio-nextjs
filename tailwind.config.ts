@@ -14,8 +14,8 @@ export default {
 				darkTheme: '#141414',
 			},
 			fontFamily: {
-				Outfit: ['Outfit', 'sans-serif'],
-				Ovo: ['Ovo', 'serif'],
+				montserrat: ['Montserrat', 'sans-serif'],
+				firaCode: ['Fira Code', 'serif'],
 			},
 			boxShadow: {
 				black: '4px 4px 0 #000',

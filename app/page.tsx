@@ -1,13 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import About from './components/about'
-import Contact from './components/contact'
-import Footer from './components/footer'
-import Header from './components/header'
-import Navbar from './components/navbar'
-import Services from './components/services'
-import Work from './components/work'
+import { About, Contact, Footer, Header, Navbar, Skills, Work } from './components'
 
 export default function Home() {
 	const [isDarkMode, setIsDarkMode] = useState(false)
@@ -37,9 +31,9 @@ export default function Home() {
 		<>
 			<Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
 			<Header />
-			<About isDarkMode={isDarkMode} />
-			<Services />
-			<Work isDarkMode={isDarkMode} />
+			<About />
+			<Skills />
+			<Work />
 			<Contact />
 			<Footer isDarkMode={isDarkMode} />
 		</>
