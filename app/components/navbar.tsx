@@ -1,5 +1,4 @@
 import { ThemeProps } from '@/types'
-import { motion } from 'motion/react'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { CiMenuFries } from 'react-icons/ci'
@@ -35,38 +34,24 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: ThemeProps) => {
 
 	return (
 		<>
-			<div className='fixed top-0 right-0 w-11/12 h-full -z-10 translate-y-[-80%] dark:hidden'>
+			<div className='fixed top-0 right-0 w-11/12 h-full -z-10 translate-y-[-80%] dark:hidden max-sm:w-full'>
 				<Image src='/header-bg-color.png' alt='header bg color' className='w-full' fill />
 			</div>
-			<motion.nav
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				transition={{ duration: 0.8 }}
-				className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
-					isScroll
-						? 'bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20'
-						: ''
-				}`}
+			<nav
+				className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 max-sm:px-2 max-sm:py-3
+					 ${
+							isScroll
+								? 'bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20'
+								: ''
+						}`}
 			>
-				<motion.a
-					initial={{ opacity: 0 }}
-					whileInView={{ opacity: 1 }}
-					transition={{ duration: 0.8, delay: 0.2 }}
-					href='#top'
-				>
-					<Image
-						src={isDarkMode ? '/logo_dark.png' : '/logo.png'}
-						className='w-40 cursor-pointer mr-14'
-						alt='site logo'
-						width={140}
-						height={60}
-					/>
-				</motion.a>
+				<a href='#top'>
+					<div className='relative w-40 h-10 max-sm:w-32 max-sm:h-8'>
+						<Image src={isDarkMode ? '/logo_dark.png' : '/logo.png'} alt='site logo' fill />
+					</div>
+				</a>
 
-				<motion.ul
-					initial={{ opacity: 0 }}
-					whileInView={{ opacity: 1 }}
-					transition={{ duration: 0.8, delay: 0.4 }}
+				<ul
 					className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
 						isScroll
 							? ''
@@ -88,32 +73,24 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: ThemeProps) => {
 					<li>
 						<a href='#contact'>Contact me</a>
 					</li>
-				</motion.ul>
+				</ul>
 
-				<motion.div
-					initial={{ opacity: 0 }}
-					whileInView={{ opacity: 1 }}
-					transition={{ duration: 0.8, delay: 0.5 }}
-					className='flex items-center gap-4'
-				>
+				<div className='flex items-center gap-4 max-sm:gap-2'>
 					<button onClick={() => setIsDarkMode!(prev => !prev)}>
 						{isDarkMode ? <IoSunnyOutline size={24} /> : <IoMoonOutline size={24} />}
 					</button>
 
-					<motion.a
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						transition={{ duration: 0.8, delay: 0.7 }}
+					<a
 						href='#contact'
 						className='hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 dark:border-white/50'
 					>
 						Contact <RiArrowRightUpLine size={20} />
-					</motion.a>
+					</a>
 
 					<button className='block md:hidden ml-3' onClick={openMenu}>
 						<CiMenuFries size={24} />
 					</button>
-				</motion.div>
+				</div>
 
 				{/* -- --- mobile menu --- -- */}
 
@@ -151,7 +128,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: ThemeProps) => {
 						</a>
 					</li>
 				</ul>
-			</motion.nav>
+			</nav>
 		</>
 	)
 }

@@ -73,8 +73,8 @@ const Contact = () => {
 			>
 				<div className='grid grid-cols-auto gap-6 mt-10 mb-8'>
 					<motion.input
-						initial={{ x: -50, opacity: 0 }}
-						whileInView={{ x: 0, opacity: 1 }}
+						initial={{ y: -50, opacity: 0 }}
+						whileInView={{ y: 0, opacity: 1 }}
 						transition={{ delay: 1.1, duration: 0.6 }}
 						type='text'
 						placeholder='Enter your name'
@@ -83,8 +83,8 @@ const Contact = () => {
 						name='name'
 					/>
 					<motion.input
-						initial={{ x: 50, opacity: 0 }}
-						whileInView={{ x: 0, opacity: 1 }}
+						initial={{ y: 50, opacity: 0 }}
+						whileInView={{ y: 0, opacity: 1 }}
 						transition={{ delay: 1.2, duration: 0.6 }}
 						type='email'
 						placeholder='Enter your email'
