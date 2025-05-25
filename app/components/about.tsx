@@ -5,7 +5,7 @@ const About = () => {
 	return (
 		<motion.div
 			id='about'
-			className='w-full px-[12%] py-10 scroll-mt-20 max-sm:px-4'
+			className='w-full px-[12%] py-10 scroll-mt-20 max-sm:px-4 mt-8'
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1 }}
