@@ -68,6 +68,7 @@ const Work = () => {
 						<div className='flex items-center gap-1.5 my-3 sm:gap-3'>
 							<a
 								href={item.siteLink}
+								target='_blank'
 								className='bg-black border text-white text-xs px-1 leading-6 py-0.5 rounded-lg hover:bg-darkHover dark:bg-transparent dark:text-white sm:px-3 sm:text-base sm:py-1.5'
 							>
 								Visit site
@@ -75,6 +76,7 @@ const Work = () => {
 							{item.adminPanelLink ? (
 								<a
 									href={item.adminPanelLink}
+									target='_blank'
 									className='bg-black border text-white text-xs px-1 py-0.5 leading-6 rounded-lg hover:bg-darkHover dark:bg-transparent dark:text-white sm:px-3 sm:text-base sm:py-1.5'
 								>
 									Visit Admin Panel
@@ -82,6 +84,7 @@ const Work = () => {
 							) : null}
 							<a
 								href={item.sourceCodeLink}
+								target='_blank'
 								className='bg-white border border-black text-xs px-1 py-0.5 leading-6 rounded-lg hover:bg-lightHover text-black sm:px-3 sm:text-base sm:py-1.5'
 							>
 								Source code
